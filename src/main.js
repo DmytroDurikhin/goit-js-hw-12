@@ -14,7 +14,7 @@ form.addEventListener('submit', handleUserSearch);
 
 
 
-function handleUserSearch(evt) {
+async function handleUserSearch(evt) {
   evt.preventDefault();
   const userSearch = evt.target.elements['search-text'].value.trim();
   if (!userSearch) {
@@ -24,16 +24,17 @@ function handleUserSearch(evt) {
   clearGallery();
   showLoader();
 
-  getImagesByQuery(userSearch)
-    .then(data => {
-      createGallery(data.hits);
-    })
-    .catch(error => {
-      console.error(error);
-    })
-    .finally(() => {
+ try {
+  const data = await getImagesByQuery(userSearch)
+    
+  createGallery(data.hits);
+ } 
+ catch (error) {
+  console.error(error);
+ }
+    
       hideLoader();
-    });
+    
   evt.target.reset();
 }
 
