@@ -10,18 +10,19 @@ import "izitoast/dist/css/iziToast.min.css";
 const API_KEY = '50348932-e8606ea56be3b9c13822f278e';
 const baseURL = 'https://pixabay.com/api/';
 
-export async function getImagesByQuery(query) {
+export async function getImagesByQuery(query, page) {
    try {
-    const res = await axios
-      .get(baseURL, {
-        params: {
-          key: API_KEY,
-          q: query,
-          image_type: 'photo',
-          orientation: 'horizontal',
-          safesearch: 'true',
-        },
-      });
+    const res = await axios.get(baseURL, {
+      params: {
+        key: API_KEY,
+        q: query,
+        image_type: 'photo',
+        orientation: 'horizontal',
+        safesearch: 'true',
+        per_page: 15,
+        page: 1,
+      },
+    });
       
       
     if (res.data.hits.length === 0) {

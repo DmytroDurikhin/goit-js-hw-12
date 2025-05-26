@@ -28,7 +28,7 @@ export function imageTemplate(image) {
     downloads,
   } = image;
   return `
-  <div class='container'></div>
+  
         <li class="gallery-item">
 <a class='gallery-link' href="${largeImageURL}" target='_blank'>
   <img src='${webformatURL}' alt="${tags}" class="gallery-image">
@@ -40,7 +40,7 @@ export function imageTemplate(image) {
   <p>Downloads: </br><b>${downloads}</b></p>
 </div>
 </li>
-</div>
+
 `;
 }
 
@@ -63,3 +63,6 @@ export function showLoader() {
 export function hideLoader() {
   loader.classList.add('is-hidden');
 }
+
+
+

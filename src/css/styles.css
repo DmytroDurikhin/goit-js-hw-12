@@ -77,10 +77,12 @@
   }     
   
   .gallery {
-    margin-top: 32px;
+    margin-top: 60px;
     display: flex;
     flex-wrap: wrap;
     gap: 24px;
+    justify-content: center;
+    align-items: center;
   }
 
   .gallery-item {
@@ -191,16 +193,14 @@ text-align: center;
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:900i');
 
-* {
-  box-sizing: border-box;
-}
 
-body {
+
+/* body {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 
 .loade-container {

@@ -6,16 +6,18 @@ import {
   clearGallery,
   createGallery,
   hideLoader,
-  showLoader
+  showLoader,
+  
 } from './js/render-functions.js';
 
 const form = document.querySelector('.form');
 form.addEventListener('submit', handleUserSearch);
-
+form.addEventListener('submit', handleUserLoadeMore);
 
 
 async function handleUserSearch(evt) {
   evt.preventDefault();
+  
   const userSearch = evt.target.elements['search-text'].value.trim();
   if (!userSearch) {
     return;
@@ -24,8 +26,9 @@ async function handleUserSearch(evt) {
   clearGallery();
   showLoader();
 
- try {
-  const data = await getImagesByQuery(userSearch)
+  try {
+    const page = 1;
+  const data = await getImagesByQuery(userSearch, page)
     
   createGallery(data.hits);
  } 
@@ -39,3 +42,11 @@ async function handleUserSearch(evt) {
 }
 
 
+function handleUserLoadeMore(evt) {
+  evt.preventDefault();
+
+
+  const query = evt.target.elements.query.value;
+
+  console.log(query);
+}
