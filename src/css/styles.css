@@ -153,6 +153,7 @@ text-align: center;
 
 
 .loader {
+  margin-top: 32px;
   font-size: 48px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
@@ -195,20 +196,14 @@ text-align: center;
 
 
 
-/* body {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
 
 
-.loade-container {
+.load-container {
 display: flex;
 justify-content: center;
 }
 
-.loade-more {
+.load-more {
   display: flex;
   justify-content: center;
   margin-top: 32px;
