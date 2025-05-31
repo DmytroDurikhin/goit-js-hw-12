@@ -3,6 +3,7 @@ import {
   
 } from './js/pixabay-api.js';
 
+
 import {
   clearGallery,
   createGallery,
@@ -10,18 +11,20 @@ import {
   showLoader,
   updateBtnStatus,
   hideLoadBtn,
+  notification,
+  galleryScroll,
 } from './js/render-functions.js';
+
+
 
 let currentPage = 0;
 let userSearch;
 let maxPage = 0;
 const PAGE_SIZE = 15;
 
+
 const form = document.querySelector('.form');
 form.addEventListener('submit', handleUserSearch);
-
-
-
 
 
 async function handleUserSearch(evt) {
@@ -50,10 +53,9 @@ async function handleUserSearch(evt) {
   }
   
   
-  
     
   hideLoader();
-  
+  notification(currentPage, maxPage);
 
     
   evt.target.reset();
@@ -73,25 +75,28 @@ async function handleUserLoadMore(evt) {
   hideLoadBtn();
 
   showLoader();
-
   
-
-
+  
   
   try {
-
+    
     const data = await getImagesByQuery(userSearch, currentPage);
     maxPage = Math.ceil(data.totalHits / PAGE_SIZE);
     updateBtnStatus(currentPage, maxPage);
     createGallery(data.hits);
 
- } 
- catch (error) {
-  console.error(error);
- }
+    galleryScroll();
+
     
- 
+  } 
+  catch (error) {
+    console.error(error);
+  }
   
+  
+  
+  
+  notification(currentPage, maxPage);
   
       hideLoader();
 
