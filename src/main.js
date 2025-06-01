@@ -1,3 +1,4 @@
+import iziToast from 'izitoast';
 import {
   getImagesByQuery,
   
@@ -36,8 +37,8 @@ async function handleUserSearch(evt) {
     return;
   }
 
-  clearGallery();
   showLoader();
+  clearGallery();
 
   try {
 
@@ -48,8 +49,14 @@ async function handleUserSearch(evt) {
     
     updateBtnStatus(currentPage, maxPage);
  } 
- catch (error) {
-  console.error(error);
+ 
+  catch (err) {
+    iziToast.show({
+      title: 'Error',
+      message: 'Something went wrong!',
+      position: 'bottomCenter',
+      class: 'custom-toast',
+    });
   }
   
   

@@ -76,15 +76,15 @@ export function hideLoader() {
 }
 
 
+const loadMore = document.querySelector('.load-more');
+
 
 export function showLoadBtn() {
-  const loadMore = document.querySelector('.load-more');
   loadMore.classList.remove('hidden');
 }
 
 
 export function hideLoadBtn() {
-  const loadMore = document.querySelector('.load-more');
   loadMore.classList.add('hidden');
 }
 

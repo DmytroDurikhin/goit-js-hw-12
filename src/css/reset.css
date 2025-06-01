@@ -5,6 +5,7 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
+  
 }
 
 h1,
@@ -50,6 +51,7 @@ input {
 body {
   margin: 0;
   padding: 0;
+  
   
 }
 
